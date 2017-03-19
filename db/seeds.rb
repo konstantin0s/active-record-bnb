@@ -4,7 +4,6 @@ Theme.delete_all
 User.delete_all
 ActiveRecord::Base.connection.execute("DELETE  from rooms_themes")
 
-
 # Themes
 themes = []
 themes << Theme.create(name: "Modern and Minimal")
@@ -28,7 +27,7 @@ end
 rooms = []
 users.sample(15).each do |user|
   rooms << Room.create(
-      home_type: ["House", "Appartment"].sample,
+      home_type: ["House", "Apartment"].sample,
       room_type: ["Shared", "Private room", "Entire home"].sample,
       accommodate: rand(1..6),
       bedroom_count: rand(1..3),
