@@ -7,7 +7,10 @@ class Booking < ApplicationRecord
   def self.during(arrival, departure)
     arrival = arrival.change(hour: 14, min: 00, sec: 00)
     departure = departure.change(hour: 11, min: 00, sec: 00)
-    starts_before_ends_after(arrival, departure).or( ends_during(arrival, departure) ).or(starts_during(arrival,departure))
+
+    starts_before_ends_after(arrival, departure)
+      .or(ends_during(arrival, departure))
+      .or(starts_during(arrival,departure))
   end
 
   def self.starts_before_ends_after(arrival, departure)
