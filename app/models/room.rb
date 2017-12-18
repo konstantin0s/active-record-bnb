@@ -1,8 +1,11 @@
 class Room < ApplicationRecord
-  belongs_to :user
+  #belongs_to :user
   has_and_belongs_to_many :themes
   has_many :bookings, dependent: :destroy
   has_many :guests, through: :bookings, source: :user
+
+  belongs_to :user, optional: true
+  has_many :photos, dependent: :destroy
 
   validates :home_type, presence: true
   validates :room_type, presence: true
