@@ -1,5 +1,6 @@
 class Booking < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
+  #belongs_to :user
   belongs_to :room
 
   before_create :set_check_in_times

@@ -5,12 +5,16 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :api do
-   resources :rooms
+   resources :rooms do
+     resources :bookings, only: [:create]
+   end
  end
+
+
 
   resources :users, only: [:show]
   resources :rooms do
-     resources :bookings, only: [:create]
+     #resources :bookings, only: [:create]
   end
   resources :profiles, only: [:new, :edit, :create, :update]
 end
