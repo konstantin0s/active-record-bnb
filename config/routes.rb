@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  namespace :api do
+   resources :rooms
+ end
+
   resources :users, only: [:show]
   resources :rooms do
      resources :bookings, only: [:create]
